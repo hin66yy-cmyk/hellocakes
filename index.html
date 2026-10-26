@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>هلو للكيك والحلويات</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#fff6f1;--surface:#ffffff;--ink:#3b1d27;--muted:#8a6a73;--rose:#e0507a;--rose-d:#b93660;--blush:#ffe1e8;--cream:#fff0d9;--line:#f1d6dc;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241418;--surface:#321d23;--ink:#fde9ee;--muted:#c9a3ae;--rose:#f06a92;--rose-d:#ff8fb0;--blush:#4a2530;--cream:#3d2a22;--line:#4d2f38}}
+:root[data-theme="dark"]{--bg:#241418;--surface:#321d23;--ink:#fde9ee;--muted:#c9a3ae;--rose:#f06a92;--rose-d:#ff8fb0;--blush:#4a2530;--cream:#3d2a22;--line:#4d2f38}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:"Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif;line-height:1.7;padding-bottom:84px}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+header{padding:34px 0 22px;text-align:center}
+.logo{font-size:56px;line-height:1}
+h1{font-size:clamp(34px,8vw,56px);margin:6px 0 4px;font-weight:800;color:var(--rose-d);letter-spacing:-.5px}
+header p{margin:0 auto;max-width:34ch;color:var(--muted);font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.chip{background:var(--cream);padding:5px 14px;border-radius:999px;font-size:14px;font-weight:500}
+h2{font-size:26px;margin:34px 0 12px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.pic{height:116px;display:grid;place-items:center;font-size:62px;background:var(--blush)}
+.card:nth-child(even) .pic{background:var(--cream)}
+.body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.name{font-weight:700;font-size:18px}
+.price{color:var(--rose-d);font-weight:800;font-size:19px}
+select,input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+select:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;padding:11px 16px;font-weight:700;background:var(--rose);color:#fff}
+button:hover{background:var(--rose-d)}
+.ghost{background:var(--blush);color:var(--rose-d)}
+.ghost:hover{background:var(--line)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:18px;margin-top:10px}
+.line{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.line:last-child{border:0}
+.line .t{flex:1}.line small{color:var(--muted);display:block}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:34px;height:34px;padding:0;border-radius:50%}
+.row{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+label{display:block;font-weight:500;font-size:14px;margin:10px 0 4px}
+.check{display:flex;gap:10px;align-items:center;margin-top:12px}
+.check input{width:20px;height:20px}
+.sum{margin-top:14px;padding:14px;border-radius:16px;background:var(--cream)}
+.sum div{display:flex;justify-content:space-between}
+.sum .tot{font-weight:800;font-size:20px;color:var(--rose-d);margin-top:4px}
+.note{font-size:14px;color:var(--muted);margin-top:8px}
+#err{color:#c0264b;font-weight:700;min-height:24px;margin-top:10px}
+.send{width:100%;font-size:18px;padding:15px;margin-top:6px;background:#1fa855}
+.send:hover{background:#178a45}
+.bar{position:fixed;bottom:0;left:0;right:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:5}
+.bar b{font-size:18px}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:26px 0}
+.demo{background:var(--rose);color:#fff;text-align:center;font-size:13px;padding:5px}
+</style>
+</head>
+<body>
+<div class="demo">نسخة تجريبية: الأسعار والمعلومات وهمية</div>
+<div class="wrap">
+<header>
+<div class="logo">🎂</div>
+<h1>هلو للكيك والحلويات</h1>
+<p>كيك مناسبات وحلويات طازجة كل يوم، اطلب الآن وأكّد على واتساب.</p>
+<div class="chips"><span class="chip">كيك المناسبات قبل 48 ساعة</span><span class="chip">توصيل مجاني فوق 150 د.ل</span><span class="chip">الكتابة على الكيك مجانية</span></div>
+</header>
+
+<h2>كيك المناسبات</h2>
+<div class="grid" id="cakes"></div>
+
+<h2>حلويات وعلب</h2>
+<div class="grid" id="sweets"></div>
+
+<h2>سلتك</h2>
+<div class="panel" id="cart"></div>
+
+<h2 id="order">بيانات الطلب</h2>
+<div class="panel">
+<div class="row">
+<div><label for="nm">الاسم</label><input id="nm" autocomplete="name"></div>
+<div><label for="ph">رقم الهاتف</label><input id="ph" type="tel" inputmode="tel" autocomplete="tel"></div>
+</div>
+<div class="row">
+<div><label for="dt">تاريخ ووقت الاستلام</label><input id="dt" type="datetime-local"></div>
+<div><label for="md">طريقة الاستلام</label><select id="md"><option value="pick">استلام من المتجر (مجاني)</option><option value="del">توصيل داخل المدينة (10 د.ل)</option></select></div>
+</div>
+<div id="addrBox" hidden><label for="ad">عنوان التوصيل</label><input id="ad" autocomplete="street-address"></div>
+<label for="wr">الكتابة على الكيك (اختياري)</label>
+<input id="wr" placeholder="مثال: عيد ميلاد سعيد يا سارة">
+<div class="check"><input type="checkbox" id="pp"><label for="pp" style="margin:0">صورة مطبوعة على الكيك (+20 د.ل)</label></div>
+<label for="al">حساسية أو ملاحظات (اختياري)</label>
+<textarea id="al" rows="2"></textarea>
+<div class="sum" id="sum"></div>
+<p class="note" id="depNote"></p>
+<div id="err" role="alert"></div>
+<button class="send" id="send">أرسل الطلب على واتساب</button>
+<p class="note">يفتح واتساب برسالة جاهزة، ويؤكد الموظف الطلب والسعر النهائي معك.</p>
+</div>
+<footer>هلو للكيك والحلويات · يومياً 9 صباحاً حتى 10 مساءً</footer>
+</div>
+
+<div class="bar"><div>السلة: <b id="bc">0</b> · <b id="bt">0 د.ل</b></div><button id="go">إتمام الطلب</button></div>
+
+<script>
+// غيّر هذا الرقم إلى رقم واتساب المتجر بصيغة دولية بدون + (مثال ليبيا: 218912345678)
+var WA="218910000000";
+var SIZES=["صغير (8 أشخاص)","وسط (15 شخصاً)","كبير (25 شخصاً)"];
+var CAKES=[
+{n:"كيك شوكولاتة",e:"🍫",p:[90,150,240]},
+{n:"كيك فانيلا بالفراولة",e:"🍓",p:[85,140,230]},
+{n:"كيك ريد فيلفت",e:"❤️",p:[100,165,260]},
+{n:"كيك الكراميل والمكسرات",e:"🥜",p:[100,165,260]}];
+var SWEETS=[
+{n:"كب كيك (حبة)",e:"🧁",p:6},
+{n:"علبة كب كيك (6 حبات)",e:"🧁",p:32},
+{n:"براوني (6 قطع)",e:"🍫",p:30},
+{n:"تشيز كيك (شريحة)",e:"🍰",p:14},
+{n:"كوكيز (12 حبة)",e:"🍪",p:35},
+{n:"بقلاوة (نصف كيلو)",e:"🥮",p:45},
+{n:"مقروط (10 قطع)",e:"🍯",p:25}];
+var cart=[];
+function $(id){return document.getElementById(id)}
+function money(n){return n+" د.ل"}
+
+$("cakes").innerHTML=CAKES.map(function(c,i){
+ return '<div class="card"><div class="pic">'+c.e+'</div><div class="body"><div class="name">'+c.n+'</div>'+
+ '<select id="sz'+i+'" data-i="'+i+'" aria-label="الحجم">'+SIZES.map(function(s,k){return '<option value="'+k+'">'+s+'</option>'}).join("")+'</select>'+
+ '<div class="price" id="pr'+i+'">'+money(c.p[0])+'</div>'+
+ '<button data-cake="'+i+'">أضف للسلة</button></div></div>'}).join("");
+$("sweets").innerHTML=SWEETS.map(function(s,i){
+ return '<div class="card"><div class="pic">'+s.e+'</div><div class="body"><div class="name">'+s.n+'</div>'+
+ '<div class="price">'+money(s.p)+'</div><button data-sweet="'+i+'">أضف للسلة</button></div></div>'}).join("");
+
+document.addEventListener("change",function(e){
+ var t=e.target;
+ if(t.id&&t.id.indexOf("sz")===0){var i=+t.dataset.i;$("pr"+i).textContent=money(CAKES[i].p[+t.value])}
+ if(t.id==="md"){$("addrBox").hidden=t.value!=="del";calc()}
+ if(t.id==="pp")calc();
+});
+document.addEventListener("click",function(e){
+ var t=e.target;
+ if(t.dataset.cake!==undefined){var i=+t.dataset.cake,k=+$("sz"+i).value;add("c"+i+"-"+k,CAKES[i].n,SIZES[k],CAKES[i].p[k],true)}
+ else if(t.dataset.sweet!==undefined){var j=+t.dataset.sweet;add("s"+j,SWEETS[j].n,"",SWEETS[j].p,false)}
+ else if(t.dataset.q){var it=cart.filter(function(x){return x.k===t.dataset.k})[0];if(it){it.q+=+t.dataset.q;if(it.q<1)cart=cart.filter(function(x){return x!==it});draw()}}
+});
+$("go").onclick=function(){$("order").scrollIntoView()};
+function add(k,n,d,p,cake){
+ var f=cart.filter(function(x){return x.k===k})[0];
+ if(f)f.q++;else cart.push({k:k,n:n,d:d,p:p,q:1,cake:cake,big:d===SIZES[2]});
+ draw();
+}
+function totals(){
+ var sub=0,cakes=0,big=false;
+ cart.forEach(function(x){sub+=x.p*x.q;if(x.cake)cakes+=x.q;if(x.big)big=true});
+ var photo=($("pp").checked&&cakes>0)?20:0;
+ var del=($("md").value==="del"&&sub>0&&sub<150)?10:0;
+ return {sub:sub,photo:photo,del:del,total:sub+photo+del,cakes:cakes,big:big};
+}
+function draw(){
+ $("cart").innerHTML=cart.length?cart.map(function(x){
+  return '<div class="line"><div class="t">'+x.n+'<small>'+(x.d?x.d+' · ':'')+money(x.p)+'</small></div>'+
+  '<div class="qty"><button class="ghost" data-k="'+x.k+'" data-q="-1" aria-label="إنقاص">−</button><b>'+x.q+'</b><button class="ghost" data-k="'+x.k+'" data-q="1" aria-label="زيادة">+</button></div></div>'}).join("")
+  :'<p class="note" style="margin:0">السلة فارغة. اختر من الكيك أو الحلويات أعلاه.</p>';
+ calc();
+}
+function calc(){
+ var t=totals(),n=cart.reduce(function(a,x){return a+x.q},0);
+ $("bc").textContent=n;$("bt").textContent=money(t.total);
+ $("sum").innerHTML='<div><span>المنتجات</span><span>'+money(t.sub)+'</span></div>'+
+ (t.photo?'<div><span>صورة مطبوعة</span><span>'+money(t.photo)+'</span></div>':'')+
+ '<div><span>التوصيل</span><span>'+($("md").value==="del"?(t.del?money(t.del):"مجاني"):"استلام")+'</span></div>'+
+ '<div class="tot"><span>المجموع</span><span>'+money(t.total)+'</span></div>';
+ $("depNote").textContent=t.big?"الكيك الكبير يتطلب عربوناً 50% ("+money(Math.round(t.total/2))+") لتأكيد الطلب.":"";
+}
+$("send").onclick=function(){
+ var t=totals(),err="";
+ if(!cart.length)err="أضف منتجاً واحداً على الأقل إلى السلة.";
+ else if(!$("nm").value.trim())err="اكتب اسمك.";
+ else if(!$("ph").value.trim())err="اكتب رقم هاتفك.";
+ else if(!$("dt").value)err="اختر تاريخ ووقت الاستلام.";
+ else if($("md").value==="del"&&!$("ad").value.trim())err="اكتب عنوان التوصيل.";
+ $("err").textContent=err;if(err)return;
+ var L=["طلب جديد من متجر هلو للكيك والحلويات","",
+ "الاسم: "+$("nm").value.trim(),"الهاتف: "+$("ph").value.trim(),
+ "الاستلام: "+$("dt").value.replace("T"," "),
+ "الطريقة: "+($("md").value==="del"?"توصيل إلى "+$("ad").value.trim():"من المتجر"),"","الطلب:"];
+ cart.forEach(function(x){L.push("- "+x.n+(x.d?" ("+x.d+")":"")+" × "+x.q+" = "+money(x.p*x.q))});
+ if($("wr").value.trim())L.push("","الكتابة على الكيك: "+$("wr").value.trim());
+ if(t.photo)L.push("صورة مطبوعة: نعم (+20 د.ل)");
+ if($("al").value.trim())L.push("ملاحظات: "+$("al").value.trim());
+ L.push("","المجموع: "+money(t.total));
+ if(t.big)L.push("العربون المطلوب (50%): "+money(Math.round(t.total/2)));
+ window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(L.join("\n")),"_blank");
+};
+draw();
+</script>
+</body>
+</html>
